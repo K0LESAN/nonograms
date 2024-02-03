@@ -26,6 +26,14 @@
 }
 
 .theme-switch {
+  @apply flex items-center py-2 pl-2 pr-12 rounded-[6.25rem] bg-[#c4c4c4];
+  aspect-ratio: 9 / 5;
+
   &__item {
+    @apply w-7 aspect-square bg-white rounded-full;
+  }
+
+  &_active {
+    @apply bg-[#3B95FF] transition-colors duration-200 ease-in-out;
   }
 }

@@ -15,8 +15,7 @@
 }
 
 .timer {
-  @apply flex items-center justify-center px-3 text-2xl font-bold py-1 gap-1 rounded-xl;
-  background-color: #c1c1c1;
+  @apply flex items-center justify-center px-3 text-2xl font-bold py-1 gap-1 rounded-xl bg-[#c1c1c1];
 
   &__minutes {
   }

@@ -6,7 +6,7 @@
   @apply flex justify-center pt-5;
 
   &__wrapper {
-    @apply w-full flex items-center justify-between mb-10;
+    @apply w-full flex items-center justify-between mb-4;
   }
 }
 
@@ -15,7 +15,7 @@
 }
 
 .timer {
-  @apply flex items-center justify-center px-3 text-2xl font-bold py-1 gap-1 rounded-xl bg-[#c1c1c1];
+  @apply flex items-center justify-center px-3 text-2xl font-bold py-1 gap-1 rounded-xl bg-[#c1c1c1] select-none;
 
   &__minutes {
   }
@@ -25,7 +25,7 @@
 }
 
 .theme-switch {
-  @apply flex items-center py-2 pl-2 pr-12 rounded-[6.25rem] bg-[#c4c4c4];
+  @apply flex items-center py-2 pl-2 pr-12 rounded-[6.25rem] bg-[#c4c4c4] cursor-pointer;
   aspect-ratio: 9 / 5;
 
   &__item {
@@ -118,7 +118,7 @@
   }
 
   &__item {
-    @apply border-r-2 border-b-2 border-solid border-[#808080];
+    @apply border-r-2 border-b-2 border-solid border-[#808080] cursor-pointer;
 
     &:nth-child(5n) {
       @apply border-r-0;

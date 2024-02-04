@@ -6,12 +6,12 @@
   @apply flex justify-center pt-5;
 
   &__wrapper {
-    @apply flex items-center justify-between mb-10;
+    @apply w-full flex items-center justify-between mb-10;
   }
 }
 
 .container {
-  @apply flex items-center flex-col px-5;
+  @apply w-max flex items-center flex-col px-5;
 }
 
 .timer {

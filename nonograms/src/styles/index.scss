@@ -25,15 +25,19 @@
 }
 
 .theme-switch {
-  @apply flex items-center py-2 pl-2 pr-12 rounded-[6.25rem] bg-[#c4c4c4] cursor-pointer;
+  @apply w-20 flex items-center py-2 pl-2 pr-2 rounded-[6.25rem] bg-[#c4c4c4] cursor-pointer transition-all duration-[400ms] ease-in-out;
   aspect-ratio: 9 / 5;
 
   &__item {
-    @apply w-7 aspect-square bg-white rounded-full;
+    @apply w-7 aspect-square bg-white rounded-full transition-transform duration-[400ms] ease-in-out;
   }
 
   &_active {
-    @apply bg-[#3B95FF] transition-colors duration-200 ease-in-out;
+    @apply bg-[#3B95FF];
+  }
+
+  &_active > &__item {
+    @apply translate-x-[36px];
   }
 }
 

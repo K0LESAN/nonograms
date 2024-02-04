@@ -133,3 +133,11 @@
     }
   }
 }
+
+.menu {
+  @apply flex gap-2 items-center justify-center p-2 flex-wrap;
+
+  &__item {
+    @apply px-5 py-3 text-white font-["inter"] font-semibold text-2xl leading-4 text-center bg-black cursor-pointer select-none;
+  }
+}

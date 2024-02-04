@@ -36,3 +36,100 @@
     @apply bg-[#3B95FF] transition-colors duration-200 ease-in-out;
   }
 }
+
+.nonogram {
+  @apply grid mb-4;
+
+  &__top-hints {
+  }
+
+  &__left-hints {
+  }
+
+  &__game-field {
+  }
+}
+
+.top-hints {
+  @apply flex border-x-[5px] border-solid border-[#808080] col-start-2 col-end-3 self-end select-none;
+
+  &__subgrid {
+    @apply grid;
+    grid-template-columns: repeat(5, 30px);
+
+    &:not(&:last-child) {
+      @apply border-r-[5px] border-solid border-[#808080];
+    }
+  }
+
+  &__item {
+    @apply flex flex-col flex-wrap items-center justify-end border-r-2 border-solid border-[#808080];
+
+    &:last-child {
+      @apply border-r-0;
+    }
+  }
+
+  &__text {
+  }
+}
+
+.left-hints {
+  @apply border-t-[5px] border-b-[5px] border-solid border-[#808080] select-none;
+
+  &__subgrid {
+    @apply grid;
+    grid-template-rows: repeat(5, 30px);
+
+    &:not(&:last-child) {
+      @apply border-b-[5px] border-solid border-[#808080];
+    }
+  }
+
+  &__item {
+    @apply flex items-center justify-end gap-[0.625rem] border-b-2 border-solid border-[#808080] pr-2 pl-2;
+
+    &:last-child {
+      @apply border-b-0;
+    }
+  }
+
+  &__text {
+  }
+}
+
+.game-field {
+  @apply grid border-[0.3125rem] border-solid border-[#808080];
+  grid-template-columns: repeat(2, min-content);
+  grid-template-rows: repeat(2, min-content);
+
+  &__subgrid {
+    @apply grid border-r-[5px] border-b-[5px] border-solid border-[#808080];
+    grid-template-columns: repeat(5, 30px);
+    grid-template-rows: repeat(5, 30px);
+
+    &:nth-child(2n) {
+      @apply border-r-0;
+    }
+
+    &:nth-child(n + 3) {
+      @apply border-b-0;
+    }
+  }
+
+  &__item {
+    @apply border-r-2 border-b-2 border-solid border-[#808080];
+
+    &:nth-child(5n) {
+      @apply border-r-0;
+    }
+
+    &:nth-child(n + 21) {
+      @apply border-b-0;
+    }
+
+    &[data-status="1"] {
+      @apply bg-black;
+    }
+  }
+}

@@ -2,7 +2,7 @@ import generatorTemplates from './template-generator';
 import sizes from './data/templates';
 
 function main() {
-  const defaultSize = 15;
+  const defaultSize = 5;
   const templates = sizes[`${defaultSize}x${defaultSize}`];
   const { name, template } =
     templates[Math.floor(Math.random() * templates.length)];

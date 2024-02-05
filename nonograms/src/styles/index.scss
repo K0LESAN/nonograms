@@ -135,6 +135,15 @@
     &[data-status="1"] {
       @apply bg-black;
     }
+
+    &[data-status="2"] {
+      @apply flex items-center justify-center relative before:rotate-45 after:-rotate-45;
+
+      &::before,
+      &::after {
+        @apply block absolute w-[100%] aspect-square h-0.5 bg-[red] content-[''];
+      }
+    }
   }
 }
 

@@ -38,6 +38,8 @@ function generatorDOMHints(size, hints, direction) {
   const countHintLines = 5;
   let index = 0;
 
+  hintField.innerHTML = '';
+
   for (let i = 0; i < countSubgrids; i++) {
     const subgrid = document.createElement('div');
     subgrid.classList.add(`${direction}-hints__subgrid`);
@@ -64,6 +66,8 @@ export default function (size, template) {
   const countLastSubgrids = size / 5;
   const { leftHints, topHints } = generatorHints(template);
   const countCells = 25;
+
+  gameField.innerHTML = '';
 
   gameField.style.gridTemplateColumns = `repeat(${countLastSubgrids}, min-content)`;
   gameField.style.gridTemplateRows = `repeat(${countLastSubgrids}, min-content)`;

@@ -1,6 +1,5 @@
 import templates from './data/templates';
 import generatorTemplates from './template-generator';
-import sizes from './data/templates';
 import gameHandler from './game-handler?url';
 import menuHandler from './menu?url';
 import selectHandler from './select?url';
@@ -135,9 +134,9 @@ function selectGenerator() {
 
 function startTemplateGenerator() {
   const defaultSize = 5;
-  const templates = sizes[`${defaultSize}x${defaultSize}`];
+  const templatesGame = templates[`${defaultSize}x${defaultSize}`];
   const { name, template } =
-    templates[Math.floor(Math.random() * templates.length)];
+    templatesGame[Math.floor(Math.random() * templatesGame.length)];
 
   generatorTemplates(defaultSize, template, name);
 }

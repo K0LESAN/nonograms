@@ -1,12 +1,16 @@
 import templates from './data/templates';
 import generatorTemplates from './template-generator';
 import sizes from './data/templates';
+import gameHandler from './game-handler?url';
+import menuHandler from './menu?url';
+import selectHandler from './select?url';
+import timerHandler from './timer?url';
 
-function scriptsGenerator(name) {
+function scriptsGenerator(src) {
   const script = document.createElement('script');
   script.defer = true;
   script.type = 'module';
-  script.src = `./src/scripts/${name}.js`;
+  script.src = src;
 
   return script;
 }
@@ -140,9 +144,10 @@ function startTemplateGenerator() {
 
 function main() {
   const scripts = [
-    scriptsGenerator('game-handler'),
-    scriptsGenerator('menu'),
-    scriptsGenerator('select')
+    scriptsGenerator(gameHandler),
+    scriptsGenerator(menuHandler),
+    scriptsGenerator(selectHandler),
+    scriptsGenerator(timerHandler)
   ];
   const app = document.createElement('div');
   const container = document.createElement('div');

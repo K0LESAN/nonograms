@@ -157,7 +157,7 @@
   @apply flex items-center gap-7;
 
   &-sizes {
-    @apply text-center p-2 rounded-2xl text-xl bg-amber-700 text-white cursor-pointer;
+    @apply text-center p-2 rounded-2xl text-xl bg-amber-700 text-white cursor-pointer select-none;
 
     &__item {
       @apply text-xl text-center cursor-pointer;
@@ -165,7 +165,7 @@
   }
 
   &-templates {
-    @apply text-center p-2 rounded-2xl text-xl bg-amber-700 text-white cursor-pointer;
+    @apply text-center p-2 rounded-2xl text-xl bg-amber-700 text-white cursor-pointer select-none;
 
     &__item {
       @apply text-xl text-center cursor-pointer;
@@ -173,6 +173,6 @@
   }
 
   &__button {
-    @apply text-center p-2 rounded-2xl text-xl bg-amber-700 text-white cursor-pointer;
+    @apply text-center p-2 rounded-2xl text-xl bg-amber-700 text-white cursor-pointer select-none;
   }
 }

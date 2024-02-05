@@ -1,5 +1,4 @@
-function cursorMovementHandler(currentStatus, clickedCell, newStatus) {
-  const preventStatus = currentStatus;
+function cursorMovementHandler(clickedCell, newStatus) {
   let preventElement = clickedCell;
 
   return function handlerMove(event) {
@@ -19,12 +18,6 @@ function cursorMovementHandler(currentStatus, clickedCell, newStatus) {
     preventElement = event.target;
 
     if (!cell) {
-      return;
-    }
-
-    const status = Number(cell.getAttribute('data-status'));
-
-    if (preventStatus && preventStatus !== status) {
       return;
     }
 
@@ -56,7 +49,7 @@ function handlerClickOnCell(event) {
   if (!deviceIsMobile) {
     document.addEventListener(
       'mousemove',
-      cursorMovementHandler(currentStatus, cell, newStatus)
+      cursorMovementHandler(cell, newStatus)
     );
   }
 }

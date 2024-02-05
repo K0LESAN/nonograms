@@ -1,6 +1,8 @@
 import actions from './actions';
 
-function selectAction(event) {
+const menu = document.querySelector('.menu');
+
+function main() {
   const button = event.target.closest('.menu__item');
   const action = actions[button?.getAttribute('data-action')];
 
@@ -11,21 +13,6 @@ function selectAction(event) {
   action();
 }
 
-function main() {
-  const menu = document.querySelector('.menu');
-
-  menu.addEventListener('click', selectAction, {
-    passive: true
-  });
-}
-
-document.addEventListener(
-  'DOMContentLoaded',
-  () => {
-    main();
-  },
-  {
-    passive: true,
-    once: true
-  }
-);
+menu.addEventListener('click', main, {
+  passive: true
+});

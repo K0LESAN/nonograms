@@ -61,17 +61,10 @@ function handlerClickOnCell(event) {
   }
 }
 
-function main() {
-  const gameField = document.querySelector('.game-field');
+const gameField = document.querySelector('.game-field');
 
-  gameField.addEventListener('mousedown', handlerClickOnCell);
-  gameField.addEventListener('touchstart', handlerClickOnCell);
-  gameField.addEventListener('contextmenu', (event) => {
-    event.preventDefault();
-  });
-}
-
-document.addEventListener('DOMContentLoaded', main, {
-  passive: true,
-  once: true
+gameField.addEventListener('mousedown', handlerClickOnCell);
+gameField.addEventListener('touchstart', handlerClickOnCell);
+gameField.addEventListener('contextmenu', (event) => {
+  event.preventDefault();
 });

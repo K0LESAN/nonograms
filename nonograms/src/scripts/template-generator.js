@@ -65,7 +65,6 @@ export default function (size, template) {
   const { leftHints, topHints } = generatorHints(template);
   const countCells = 25;
 
-  gameField.setAttribute('data-size', size);
   gameField.style.gridTemplateColumns = `repeat(${countLastSubgrids}, min-content)`;
   gameField.style.gridTemplateRows = `repeat(${countLastSubgrids}, min-content)`;
 

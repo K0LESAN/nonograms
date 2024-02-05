@@ -171,4 +171,8 @@
       @apply text-xl text-center;
     }
   }
+
+  &__button {
+    @apply text-center p-2 rounded-2xl text-xl bg-amber-700 text-white;
+  }
 }

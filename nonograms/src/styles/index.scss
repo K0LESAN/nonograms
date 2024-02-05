@@ -104,19 +104,17 @@
 
 .game-field {
   @apply grid border-[0.3125rem] border-solid border-[#808080];
-  grid-template-columns: repeat(2, min-content);
-  grid-template-rows: repeat(2, min-content);
 
   &__subgrid {
     @apply grid border-r-[5px] border-b-[5px] border-solid border-[#808080];
     grid-template-columns: repeat(5, 30px);
     grid-template-rows: repeat(5, 30px);
 
-    &:nth-child(2n) {
+    &[data-last-right-subgrid] {
       @apply border-r-0;
     }
 
-    &:nth-child(n + 3) {
+    &[data-last-bottom-subgrid] {
       @apply border-b-0;
     }
   }

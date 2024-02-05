@@ -1,7 +1,8 @@
 export default function () {
   const gameField = document.querySelector('.game-field');
   const savedGame = {
-    savedTemplate: [],
+    size: Math.sqrt(gameField.children.length) * 5,
+    template: [],
     name: gameField.getAttribute('data-current-template')
   };
 
@@ -12,7 +13,7 @@ export default function () {
       line.push(cell.getAttribute('data-status') || 0);
     }
 
-    savedGame.savedTemplate.push(line);
+    savedGame.template.push(line);
   }
 
   localStorage.setItem(

@@ -60,7 +60,7 @@ function generatorDOMHints(size, hints, direction) {
   }
 }
 
-export default function (size, template) {
+export default function (size, template, name) {
   const gameField = document.querySelector('.game-field');
   const countSubgrids = (size / 5) ** 2;
   const countLastSubgrids = size / 5;
@@ -68,6 +68,7 @@ export default function (size, template) {
   const countCells = 25;
 
   gameField.innerHTML = '';
+  gameField.setAttribute('data-current-template', name);
 
   gameField.style.gridTemplateColumns = `repeat(${countLastSubgrids}, min-content)`;
   gameField.style.gridTemplateRows = `repeat(${countLastSubgrids}, min-content)`;

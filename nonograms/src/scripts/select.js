@@ -21,7 +21,7 @@ function handlerButtonTemplate(event) {
     ({ name }) => templateName === name
   );
 
-  templateGenerator(Number(size), template);
+  templateGenerator(Number(size), template, templateName);
 }
 
 function main() {

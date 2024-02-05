@@ -7,7 +7,7 @@ function main() {
   const { name, template } =
     templates[Math.floor(Math.random() * templates.length)];
 
-  generatorTemplates(defaultSize, template);
+  generatorTemplates(defaultSize, template, name);
 }
 
 window.addEventListener('load', main, {

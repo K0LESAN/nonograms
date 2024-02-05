@@ -1,6 +1,9 @@
 export default function () {
   const gameField = document.querySelector('.game-field');
-  const savedGame = { savedTemplate: [], name: '' };
+  const savedGame = {
+    savedTemplate: [],
+    name: gameField.getAttribute('data-current-template')
+  };
 
   for (const subgrid of gameField.children) {
     const line = [];

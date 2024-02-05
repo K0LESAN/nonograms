@@ -157,7 +157,7 @@
   @apply flex items-center gap-7;
 
   &-sizes {
-    @apply text-center py-2 rounded-2xl text-xl bg-amber-700 text-white;
+    @apply text-center p-2 rounded-2xl text-xl bg-amber-700 text-white;
 
     &__item {
       @apply text-xl text-center;
@@ -165,7 +165,7 @@
   }
 
   &-templates {
-    @apply text-center py-2 rounded-2xl text-xl bg-amber-700 text-white;
+    @apply text-center p-2 rounded-2xl text-xl bg-amber-700 text-white;
 
     &__item {
       @apply text-xl text-center;

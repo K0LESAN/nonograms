@@ -3,6 +3,7 @@ import generatorTemplates from './template-generator';
 import menuHandler from './menu';
 import { startNewTemplate, renderOptions } from './select';
 import { controllerTime } from './timer';
+import { audios } from './play-sound';
 import gameHandler from './game-handler?url';
 import timerHandler from './timer?url';
 
@@ -185,7 +186,7 @@ function main() {
   app.classList.add('app');
   container.classList.add('container');
 
-  app.append(container);
+  app.append(container, ...Object.values(audios));
   container.append(timerAndThemeSwitcher, nonogram, menu, select);
 
   if (isDark) {

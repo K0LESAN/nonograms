@@ -1,3 +1,5 @@
+import { audioController } from './play-sound';
+
 function cursorMovementHandler(clickedCell, newStatus) {
   let preventElement = clickedCell;
 
@@ -21,7 +23,12 @@ function cursorMovementHandler(clickedCell, newStatus) {
       return;
     }
 
-    cell.setAttribute('data-status', newStatus);
+    const prevStatus = Number(cell.getAttribute('data-status')) || 0;
+
+    if (prevStatus !== newStatus) {
+      audioController(newStatus);
+      cell.setAttribute('data-status', newStatus);
+    }
   };
 }
 
@@ -45,6 +52,8 @@ function handlerClickOnCell(event) {
     'data-status',
     !deviceIsMobile ? newStatus : (currentStatus + 1) % 3
   );
+
+  audioController(!deviceIsMobile ? newStatus : (currentStatus + 1) % 3);
 
   if (!deviceIsMobile) {
     document.addEventListener(

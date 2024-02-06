@@ -17,9 +17,9 @@ export default function (event) {
   const size = sizesSelect[sizeIndex].value;
   const templateName = templatesSelect[templateIndex].value;
 
-  const { template } = templates[`${size}x${size}`].find(
+  const { template } = templates[size].find(
     ({ name }) => templateName === name
   );
 
-  templateGenerator(Number(size), template, templateName);
+  templateGenerator(Number(size.split('x')[0]), template, templateName);
 }

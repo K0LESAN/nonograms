@@ -190,5 +190,3 @@ window.addEventListener('load', main, {
   passive: true,
   once: true
 });
-
-export default templates;

@@ -1,9 +1,7 @@
 import templates from './data/templates';
 import templateGenerator from './template-generator';
 
-const button = document.querySelector('.select');
-
-function main(event) {
+export default function (event) {
   const button = event.target.closest('.select__button');
   const selectMenu = event.currentTarget;
   const sizesSelect = selectMenu.children[0];
@@ -25,7 +23,3 @@ function main(event) {
 
   templateGenerator(Number(size), template, templateName);
 }
-
-button.addEventListener('click', main, {
-  passive: true
-});

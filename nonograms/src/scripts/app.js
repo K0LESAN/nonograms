@@ -1,8 +1,8 @@
 import templates from './data/templates';
 import generatorTemplates from './template-generator';
+import selectHandler from './select';
+import menuHandler from './menu';
 import gameHandler from './game-handler?url';
-import menuHandler from './menu?url';
-import selectHandler from './select?url';
 import timerHandler from './timer?url';
 
 function scriptsGenerator(src) {
@@ -72,6 +72,10 @@ function menuGenerator() {
   buttonSolutionGame.classList.add('menu__item');
   buttonScoreGame.classList.add('menu__item');
 
+  menu.addEventListener('click', menuHandler, {
+    passive: true
+  });
+
   buttonSaveGame.textContent = 'Save game';
   buttonRestartGame.textContent = 'Reset game';
   buttonContinueGame.textContent = 'Continue last game';
@@ -113,6 +117,10 @@ function selectGenerator() {
 
   select.append(selectSizes, selectTemplates, selectButton);
 
+  select.addEventListener('click', selectHandler, {
+    passive: true
+  });
+
   for (const size in templates) {
     const optionSize = document.createElement('option');
     optionSize.classList.add('select-sizes__item');
@@ -144,8 +152,6 @@ function startTemplateGenerator() {
 function main() {
   const scripts = [
     scriptsGenerator(gameHandler),
-    scriptsGenerator(menuHandler),
-    scriptsGenerator(selectHandler),
     scriptsGenerator(timerHandler)
   ];
   const app = document.createElement('div');
@@ -184,3 +190,5 @@ window.addEventListener('load', main, {
   passive: true,
   once: true
 });
+
+export default templates;

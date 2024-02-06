@@ -20,7 +20,7 @@ const audios = {
 };
 
 function audioController(action) {
-  if (isPlayed) {
+  if (isPlayed || audioController.isCancel) {
     return;
   }
 

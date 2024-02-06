@@ -21,6 +21,14 @@ body[class="dark"] {
   @apply flex items-center justify-center px-3 text-2xl font-bold py-1 gap-1 rounded-xl bg-[#c1c1c1] select-none dark:text-white dark:bg-fuchsia-950;
 }
 
+.sound-button {
+  @apply text-2xl border-4 border-green-700 px-10 py-1 rounded-2xl bg-sky-500 dark:bg-slate-800 dark:text-neutral-300 select-none cursor-pointer;
+
+  &[data-off] {
+    @apply border-red-700;
+  }
+}
+
 .theme-switch {
   @apply w-20 flex items-center py-2 pl-2 pr-2 rounded-[6.25rem] bg-[#c4c4c4] cursor-pointer transition-all duration-[400ms] ease-in-out dark:bg-[#3B95FF] select-none;
   aspect-ratio: 9 / 5;

@@ -3,7 +3,7 @@ import handlerClickOnCell from './handlers/game-handler';
 import menuHandler from './handlers/menu';
 import generatorTemplates from './helpers/template-generator';
 import { controllerTime } from './helpers/timer';
-import { audios } from './helpers/play-sound';
+import { audios, audioController } from './helpers/play-sound';
 import templates from './data/templates';
 
 function topMenuGenerator() {
@@ -13,18 +13,20 @@ function topMenuGenerator() {
   const minutes = document.createElement('span');
   const seconds = document.createElement('span');
   const themeSwitchItem = document.createElement('div');
+  const soundButton = document.createElement('div');
   const isDark = window.matchMedia(
     'screen and (prefers-color-scheme: dark)'
   ).matches;
 
   wrapper.classList.add('app__wrapper');
   timer.classList.add('timer');
+  soundButton.classList.add('sound-button');
   themeSwitch.classList.add('theme-switch');
   minutes.classList.add('timer__minutes');
   seconds.classList.add('timer__seconds');
   themeSwitchItem.classList.add('theme-switch__item');
 
-  wrapper.append(timer, themeSwitch);
+  wrapper.append(timer, soundButton, themeSwitch);
   timer.append(minutes, ':', seconds);
   themeSwitch.append(themeSwitchItem);
 
@@ -40,8 +42,28 @@ function topMenuGenerator() {
     document.body.classList.toggle('dark');
   });
 
+  soundButton.addEventListener('click', (event) => {
+    const button = event.target.closest('.sound-button');
+
+    if (!button) {
+      return;
+    }
+
+    const isOff = button.hasAttribute('data-off');
+    audioController.isCancel = !isOff;
+
+    if (isOff) {
+      button.textContent = 'on';
+      button.removeAttribute('data-off');
+    } else {
+      button.textContent = 'off';
+      button.setAttribute('data-off', '');
+    }
+  });
+
   minutes.textContent = '00';
   seconds.textContent = '00';
+  soundButton.textContent = 'on';
 
   controllerTime.minutesDOM = minutes;
   controllerTime.secondsDOM = seconds;

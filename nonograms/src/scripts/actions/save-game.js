@@ -1,20 +1,30 @@
+import transformTemplate from '../transform-template';
+import { controllerTime } from '../timer';
+
 export default function () {
   const gameField = document.querySelector('.game-field');
+  const length = gameField.children.length;
+  const array = Array.from(gameField.children);
+  const step = Math.sqrt(length);
+  const template = [];
   const savedGame = {
-    size: Math.sqrt(gameField.children.length) * 5,
-    template: [],
+    size: Math.sqrt(length) * 5,
     name: gameField.getAttribute('data-current-template')
   };
 
-  for (const subgrid of gameField.children) {
-    const line = [];
+  let index = 0;
 
-    for (const cell of subgrid.children) {
-      line.push(cell.getAttribute('data-status') || 0);
-    }
-
-    savedGame.template.push(line);
+  while (index < length) {
+    transformTemplate(template, array.slice(index, index + step));
+    index += step;
   }
+  console.log(gameField);
+  savedGame.savedTemplate = document.querySelector('.game-field').innerHTML;
+  savedGame.template = JSON.parse(
+    localStorage.getItem('k32d04sXgxnd312bd-currentGame')
+  );
+  savedGame.minutes = controllerTime.minutes;
+  savedGame.seconds = controllerTime.seconds;
 
   localStorage.setItem(
     'k32d04sXgxnd312bd-savedGame',

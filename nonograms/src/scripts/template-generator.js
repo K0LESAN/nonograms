@@ -1,3 +1,5 @@
+import { controllerTime } from './timer';
+
 function generatorHints(arr) {
   function helper(localArr, status, pending) {
     if (!status) {
@@ -60,7 +62,7 @@ function generatorDOMHints(size, hints, direction) {
   }
 }
 
-export default function (size, template, name) {
+export default function (size, template, name, restartTimer = true) {
   const gameField = document.querySelector('.game-field');
   const countSubgrids = (size / 5) ** 2;
   const countLastSubgrids = size / 5;
@@ -102,4 +104,9 @@ export default function (size, template, name) {
     'k32d04sXgxnd312bd-currentGame',
     JSON.stringify(template)
   );
+
+  if (restartTimer) {
+    controllerTime.stop();
+    controllerTime.start();
+  }
 }

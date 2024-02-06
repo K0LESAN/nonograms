@@ -97,4 +97,9 @@ export default function (size, template, name) {
 
   generatorDOMHints(size, leftHints, 'left');
   generatorDOMHints(size, topHints, 'top');
+
+  localStorage.setItem(
+    'k32d04sXgxnd312bd-currentGame',
+    JSON.stringify(template)
+  );
 }

@@ -1,20 +1,10 @@
 import templates from './data/templates';
 import generatorTemplates from './template-generator';
 import menuHandler from './menu';
+import handlerClickOnCell from './game-handler';
 import { startNewTemplate, renderOptions } from './select';
 import { controllerTime } from './timer';
 import { audios } from './play-sound';
-import gameHandler from './game-handler?url';
-import timerHandler from './timer?url';
-
-function scriptsGenerator(src) {
-  const script = document.createElement('script');
-  script.defer = true;
-  script.type = 'module';
-  script.src = src;
-
-  return script;
-}
 
 function topMenuGenerator() {
   const wrapper = document.createElement('div');
@@ -69,6 +59,12 @@ function nonogramGenerator() {
   topHints.classList.add('top-hints', 'nonogram__top-hints');
   leftHints.classList.add('left-hints', 'nonogram__left-hints');
   gameField.classList.add('game-field', 'nonogram__game-field');
+
+  gameField.addEventListener('mousedown', handlerClickOnCell);
+  gameField.addEventListener('touchstart', handlerClickOnCell);
+  gameField.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+  });
 
   nonogram.append(topHints, leftHints, gameField);
 
@@ -194,11 +190,6 @@ function main() {
   }
 
   document.body.append(app);
-
-  document.head.append(
-    scriptsGenerator(gameHandler),
-    scriptsGenerator(timerHandler)
-  );
 
   startTemplateGenerator();
 

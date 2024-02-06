@@ -32,7 +32,7 @@ function cursorMovementHandler(clickedCell, newStatus) {
   };
 }
 
-function handlerClickOnCell(event) {
+export default function (event) {
   const cell = event.target.closest('.game-field__item');
   const deviceIsMobile = window.matchMedia(
     'screen and (hover: none) and (pointer: coarse)'
@@ -62,11 +62,3 @@ function handlerClickOnCell(event) {
     );
   }
 }
-
-const gameField = document.querySelector('.game-field');
-
-gameField.addEventListener('mousedown', handlerClickOnCell);
-gameField.addEventListener('touchstart', handlerClickOnCell);
-gameField.addEventListener('contextmenu', (event) => {
-  event.preventDefault();
-});

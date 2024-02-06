@@ -54,7 +54,7 @@ body[class="dark"] {
 
   &__subgrid {
     @apply grid;
-    grid-template-columns: repeat(5, 30px);
+    grid-template-columns: repeat(5, clamp(21px, 4.2vw, 38px));
 
     &:not(&:last-child) {
       @apply border-r-[5px] border-solid border-[#808080] dark:border-slate-300;
@@ -79,7 +79,7 @@ body[class="dark"] {
 
   &__subgrid {
     @apply grid;
-    grid-template-rows: repeat(5, 30px);
+    grid-template-rows: repeat(5, clamp(21px, 4.2vw, 38px));
 
     &:not(&:last-child) {
       @apply border-b-[5px] border-solid border-[#808080] dark:border-slate-300;
@@ -104,8 +104,8 @@ body[class="dark"] {
 
   &__subgrid {
     @apply grid border-r-[5px] border-b-[5px] border-solid border-[#808080] dark:border-slate-300;
-    grid-template-columns: repeat(5, 30px);
-    grid-template-rows: repeat(5, 30px);
+    grid-template-columns: repeat(5, clamp(21px, 4.2vw, 38px));
+    grid-template-rows: repeat(5, clamp(21px, 4.2vw, 38px));
 
     &[data-last-right-subgrid] {
       @apply border-r-0;
@@ -143,15 +143,23 @@ body[class="dark"] {
 }
 
 .menu {
-  @apply flex gap-2 items-center justify-center p-2 flex-wrap;
+  @apply max-w-[48rem] flex gap-2 items-center justify-center p-2 flex-wrap;
 
   &__item {
     @apply px-5 py-3 text-white font-["inter"] font-semibold text-2xl leading-4 text-center text-slate-950 bg-lime-600 dark:text-white dark:bg-zinc-900 cursor-pointer select-none;
+
+    @media screen and (max-width: 620px) {
+      @apply text-xl px-4 py-2;
+    }
+
+    @media screen and (max-width: 600px) {
+      @apply text-lg px-3 py-1;
+    }
   }
 }
 
 .select {
-  @apply flex items-center gap-7;
+  @apply flex flex-wrap justify-center items-center gap-7;
 
   &-sizes,
   &-templates,
@@ -160,6 +168,10 @@ body[class="dark"] {
 
     &__item {
       @apply text-xl text-center cursor-pointer;
+    }
+
+    @media screen and (max-width: 600px) {
+      @apply text-lg px-1;
     }
   }
 }

@@ -150,10 +150,6 @@ function startTemplateGenerator() {
 }
 
 function main() {
-  const scripts = [
-    scriptsGenerator(gameHandler),
-    scriptsGenerator(timerHandler)
-  ];
   const app = document.createElement('div');
   const container = document.createElement('div');
   const timerAndThemeSwitcher = topMenuGenerator();
@@ -168,7 +164,6 @@ function main() {
   container.append(timerAndThemeSwitcher, nonogram, menu, select);
 
   document.body.append(app);
-  document.head.append(...scripts);
 
   startTemplateGenerator();
 
@@ -184,6 +179,11 @@ function main() {
       break;
     }
   }
+
+  document.head.append(
+    scriptsGenerator(gameHandler),
+    scriptsGenerator(timerHandler)
+  );
 }
 
 window.addEventListener('load', main, {

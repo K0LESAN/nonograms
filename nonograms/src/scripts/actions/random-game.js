@@ -1,6 +1,5 @@
 import templates from '../data/templates';
 import generatorTemplates from '../template-generator';
-import { controllerTime } from '../timer';
 
 export default function () {
   const randomIndex = (arr) => Math.floor(Math.random() * arr.length);
@@ -10,9 +9,6 @@ export default function () {
   const randomTemplate =
     templates[randomSize][randomIndex(randomSize)].template;
   const size = Number(randomSize.split('x')[0]);
-
-  controllerTime.stop();
-  controllerTime.start();
 
   generatorTemplates(size, randomTemplate, templateName);
 }

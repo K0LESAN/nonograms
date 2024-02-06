@@ -167,6 +167,11 @@ function main() {
 
   startTemplateGenerator();
 
+  document.head.append(
+    scriptsGenerator(gameHandler),
+    scriptsGenerator(timerHandler)
+  );
+
   const selectSizes = document.querySelector('.select-templates').options;
   const length = selectSizes.length;
   const currentTemplate = document
@@ -179,11 +184,6 @@ function main() {
       break;
     }
   }
-
-  document.head.append(
-    scriptsGenerator(gameHandler),
-    scriptsGenerator(timerHandler)
-  );
 }
 
 window.addEventListener('load', main, {

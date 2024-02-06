@@ -1,18 +1,30 @@
-const minutesDOM = document.querySelector('.timer__minutes');
-const secondsDOM = document.querySelector('.timer__seconds');
-let minutes = 0;
-let seconds = 0;
+const controllerTime = {
+  start: function () {
+    this.timer = setInterval(() => {
+      const minutesDOM = document.querySelector('.timer__minutes');
+      const secondsDOM = document.querySelector('.timer__seconds');
 
-const timer = setInterval(() => {
-  seconds++;
+      this.seconds++;
 
-  if (seconds === 60) {
-    minutes++;
-    seconds = 0;
-  }
+      if (this.seconds === 60) {
+        this.minutes++;
+        this.seconds = 0;
+      }
 
-  secondsDOM.textContent = String(seconds).padStart(2, '0');
-  minutesDOM.textContent = String(minutes).padStart(2, '0');
-}, 1000);
+      minutesDOM.textContent = String(this.minutes).padStart(2, '0');
+      secondsDOM.textContent = String(this.seconds).padStart(2, '0');
+    }, 1000);
+  },
+  init: function () {
+    clearInterval(this.timer);
+    this.seconds = 0;
+    this.minutes = 0;
+  },
+  timer: null,
+  seconds: 0,
+  minutes: 0
+};
 
-export default timer;
+controllerTime.start();
+
+export { controllerTime };

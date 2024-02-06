@@ -1,3 +1,5 @@
+import { controllerTime } from './../timer';
+
 export default function () {
   const gameField = document.querySelector('.game-field');
   const minutes = document.querySelector('.timer__minutes');
@@ -11,4 +13,6 @@ export default function () {
 
   minutes.textContent = '00';
   seconds.textContent = '00';
+  controllerTime.init();
+  controllerTime.start();
 }

@@ -2,14 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+body[class="dark"] {
+  @apply bg-[#232323];
+}
+
 .app {
-  @apply h-screen flex justify-center pt-5 dark:bg-[#232323];
+  @apply flex justify-center pt-5;
 
   &__wrapper {
     @apply w-full flex items-center justify-between mb-4;
   }
 }
-
 .container {
   @apply w-max flex items-center flex-col px-5;
 }

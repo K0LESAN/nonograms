@@ -6,7 +6,7 @@ function startNewTemplate(event) {
   const selectMenu = event.currentTarget;
   const sizesSelect = selectMenu.children[0];
   const templatesSelect = selectMenu.children[1];
-  console.log(button);
+
   if (!button) {
     return;
   }

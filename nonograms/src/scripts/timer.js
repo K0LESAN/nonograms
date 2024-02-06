@@ -30,7 +30,7 @@ const controllerTime = {
         return;
       }
 
-      this.start.call(this);
+      this.start();
       event.currentTarget.removeEventListener('mousedown', handler);
       event.currentTarget.removeEventListener('touchstart', handler);
     };

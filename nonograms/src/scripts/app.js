@@ -22,6 +22,9 @@ function topMenuGenerator() {
   const minutes = document.createElement('span');
   const seconds = document.createElement('span');
   const themeSwitchItem = document.createElement('div');
+  const isDark = window.matchMedia(
+    'screen and (prefers-color-scheme: dark)'
+  ).matches;
 
   wrapper.classList.add('app__wrapper');
   timer.classList.add('timer');
@@ -33,6 +36,18 @@ function topMenuGenerator() {
   wrapper.append(timer, themeSwitch);
   timer.append(minutes, ':', seconds);
   themeSwitch.append(themeSwitchItem);
+
+  if (isDark) {
+    themeSwitch.classList.add('theme-switch_active');
+  }
+
+  themeSwitch.addEventListener('click', (event) => {
+    if (!event.target.closest('.theme-switch')) {
+      return;
+    }
+
+    document.body.classList.toggle('dark');
+  });
 
   minutes.textContent = '00';
   seconds.textContent = '00';
@@ -163,12 +178,19 @@ function main() {
   const nonogram = nonogramGenerator();
   const menu = menuGenerator();
   const select = selectGenerator();
+  const isDark = window.matchMedia(
+    'screen and (prefers-color-scheme: dark)'
+  ).matches;
 
   app.classList.add('app');
   container.classList.add('container');
 
   app.append(container);
   container.append(timerAndThemeSwitcher, nonogram, menu, select);
+
+  if (isDark) {
+    document.body.classList.add('dark');
+  }
 
   document.body.append(app);
 

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .app {
-  @apply flex justify-center pt-5;
+  @apply h-screen flex justify-center pt-5 dark:bg-[#232323];
 
   &__wrapper {
     @apply w-full flex items-center justify-between mb-4;
@@ -15,7 +15,7 @@
 }
 
 .timer {
-  @apply flex items-center justify-center px-3 text-2xl font-bold py-1 gap-1 rounded-xl bg-[#c1c1c1] select-none;
+  @apply flex items-center justify-center px-3 text-2xl font-bold py-1 gap-1 rounded-xl bg-[#c1c1c1] select-none dark:text-white dark:bg-fuchsia-950;
 
   &__minutes {
   }
@@ -25,19 +25,11 @@
 }
 
 .theme-switch {
-  @apply w-20 flex items-center py-2 pl-2 pr-2 rounded-[6.25rem] bg-[#c4c4c4] cursor-pointer transition-all duration-[400ms] ease-in-out;
+  @apply w-20 flex items-center py-2 pl-2 pr-2 rounded-[6.25rem] bg-[#c4c4c4] cursor-pointer transition-all duration-[400ms] ease-in-out dark:bg-[#3B95FF] select-none;
   aspect-ratio: 9 / 5;
 
   &__item {
-    @apply w-7 aspect-square bg-white rounded-full transition-transform duration-[400ms] ease-in-out;
-  }
-
-  &_active {
-    @apply bg-[#3B95FF];
-  }
-
-  &_active > &__item {
-    @apply translate-x-[36px];
+    @apply w-7 aspect-square bg-white rounded-full transition-transform duration-[400ms] ease-in-out dark:translate-x-[36px];
   }
 }
 
@@ -55,19 +47,19 @@
 }
 
 .top-hints {
-  @apply flex border-x-[5px] border-solid border-[#808080] col-start-2 col-end-3 self-end select-none;
+  @apply flex border-x-[5px] border-solid border-[#808080] dark:border-slate-300 col-start-2 col-end-3 self-end select-none;
 
   &__subgrid {
     @apply grid;
     grid-template-columns: repeat(5, 30px);
 
     &:not(&:last-child) {
-      @apply border-r-[5px] border-solid border-[#808080];
+      @apply border-r-[5px] border-solid border-[#808080] dark:border-slate-300;
     }
   }
 
   &__item {
-    @apply flex flex-col flex-wrap items-center justify-end border-r-2 border-solid border-[#808080];
+    @apply flex flex-col flex-wrap items-center justify-end border-r-2 border-solid border-[#808080] dark:border-slate-300;
 
     &:last-child {
       @apply border-r-0;
@@ -75,23 +67,24 @@
   }
 
   &__text {
+    @apply dark:text-white;
   }
 }
 
 .left-hints {
-  @apply border-t-[5px] border-b-[5px] border-solid border-[#808080] select-none;
+  @apply border-t-[5px] border-b-[5px] border-solid border-[#808080] dark:border-slate-300 select-none;
 
   &__subgrid {
     @apply grid;
     grid-template-rows: repeat(5, 30px);
 
     &:not(&:last-child) {
-      @apply border-b-[5px] border-solid border-[#808080];
+      @apply border-b-[5px] border-solid border-[#808080] dark:border-slate-300;
     }
   }
 
   &__item {
-    @apply flex items-center justify-end gap-[0.625rem] border-b-2 border-solid border-[#808080] pr-2 pl-2;
+    @apply flex items-center justify-end gap-[0.625rem] border-b-2 border-solid border-[#808080] dark:border-slate-300 pr-2 pl-2;
 
     &:last-child {
       @apply border-b-0;
@@ -99,14 +92,15 @@
   }
 
   &__text {
+    @apply dark:text-white;
   }
 }
 
 .game-field {
-  @apply grid border-[0.3125rem] border-solid border-[#808080];
+  @apply grid border-[0.3125rem] border-solid border-[#808080] dark:border-slate-300 dark:bg-[#5F5E5E];
 
   &__subgrid {
-    @apply grid border-r-[5px] border-b-[5px] border-solid border-[#808080];
+    @apply grid border-r-[5px] border-b-[5px] border-solid border-[#808080] dark:border-slate-300;
     grid-template-columns: repeat(5, 30px);
     grid-template-rows: repeat(5, 30px);
 
@@ -120,7 +114,7 @@
   }
 
   &__item {
-    @apply border-r-2 border-b-2 border-solid border-[#808080] cursor-pointer;
+    @apply border-r-2 border-b-2 border-solid border-[#808080] dark:border-slate-300 cursor-pointer;
 
     &:nth-child(5n) {
       @apply border-r-0;
@@ -139,7 +133,7 @@
 
       &::before,
       &::after {
-        @apply block absolute w-[100%] aspect-square h-0.5 bg-[red] content-[''];
+        @apply block absolute w-[100%] aspect-square h-0.5 bg-[red] dark:bg-black content-[''];
       }
     }
   }
@@ -149,30 +143,20 @@
   @apply flex gap-2 items-center justify-center p-2 flex-wrap;
 
   &__item {
-    @apply px-5 py-3 text-white font-["inter"] font-semibold text-2xl leading-4 text-center bg-lime-800 cursor-pointer select-none;
+    @apply px-5 py-3 text-white font-["inter"] font-semibold text-2xl leading-4 text-center text-slate-950 bg-lime-600 dark:text-white dark:bg-zinc-900 cursor-pointer select-none;
   }
 }
 
 .select {
   @apply flex items-center gap-7;
 
-  &-sizes {
-    @apply text-center p-2 rounded-2xl text-xl bg-amber-700 text-white cursor-pointer select-none;
-
-    &__item {
-      @apply text-xl text-center cursor-pointer;
-    }
-  }
-
-  &-templates {
-    @apply text-center p-2 rounded-2xl text-xl bg-amber-700 text-white cursor-pointer select-none;
-
-    &__item {
-      @apply text-xl text-center cursor-pointer;
-    }
-  }
-
+  &-sizes,
+  &-templates,
   &__button {
-    @apply text-center p-2 rounded-2xl text-xl bg-amber-700 text-white cursor-pointer select-none;
+    @apply text-center p-2 rounded-2xl text-xl font-semibold bg-zinc-500 dark:bg-stone-900 dark:text-white text-slate-950 cursor-pointer select-none;
+
+    &__item {
+      @apply text-xl text-center cursor-pointer;
+    }
   }
 }

@@ -1,10 +1,10 @@
+import { startNewTemplate, renderOptions } from './handlers/select';
+import handlerClickOnCell from './handlers/game-handler';
+import menuHandler from './handlers/menu';
+import generatorTemplates from './helpers/template-generator';
+import { controllerTime } from './helpers/timer';
+import { audios } from './helpers/play-sound';
 import templates from './data/templates';
-import generatorTemplates from './template-generator';
-import menuHandler from './menu';
-import handlerClickOnCell from './game-handler';
-import { startNewTemplate, renderOptions } from './select';
-import { controllerTime } from './timer';
-import { audios } from './play-sound';
 
 function topMenuGenerator() {
   const wrapper = document.createElement('div');

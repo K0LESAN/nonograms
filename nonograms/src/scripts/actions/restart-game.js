@@ -1,4 +1,4 @@
-import { controllerTime } from './../timer';
+import { controllerTime } from '../helpers/timer';
 
 export default function () {
   const gameField = document.querySelector('.game-field');

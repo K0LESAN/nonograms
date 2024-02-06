@@ -1,5 +1,5 @@
 import templates from '../data/templates';
-import generatorTemplates from '../template-generator';
+import generatorTemplates from '../helpers/template-generator';
 
 export default function () {
   const randomIndex = (arr) => Math.floor(Math.random() * arr.length);

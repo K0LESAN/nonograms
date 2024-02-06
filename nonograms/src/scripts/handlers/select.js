@@ -1,5 +1,5 @@
-import templates from './data/templates';
-import templateGenerator from './template-generator';
+import templates from '../data/templates';
+import templateGenerator from '../helpers/template-generator';
 
 function startNewTemplate(event) {
   const button = event.target.closest('.select__button');

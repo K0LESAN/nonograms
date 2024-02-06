@@ -1,5 +1,5 @@
-import templateGenerator from '../template-generator';
-import { controllerTime } from '../timer';
+import templateGenerator from '../helpers/template-generator';
+import { controllerTime } from '../helpers/timer';
 
 export default function () {
   const data = localStorage.getItem('k32d04sXgxnd312bd-savedGame');

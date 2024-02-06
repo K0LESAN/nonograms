@@ -1,7 +1,7 @@
-import crossSrc from './data/audios/cross.mp3';
-import fillSrc from './data/audios/fill.mp3';
-import noneSrc from './data/audios/none.mp3';
-import winSrc from './data/audios/win.mp3';
+import crossSrc from '../data/audios/cross.mp3';
+import fillSrc from '../data/audios/fill.mp3';
+import noneSrc from '../data/audios/none.mp3';
+import winSrc from '../data/audios/win.mp3';
 
 let isPlayed = false;
 

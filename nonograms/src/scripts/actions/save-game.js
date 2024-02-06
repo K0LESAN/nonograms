@@ -1,5 +1,5 @@
-import transformTemplate from '../transform-template';
-import { controllerTime } from '../timer';
+import transformTemplate from '../helpers/transform-template';
+import { controllerTime } from '../helpers/timer';
 
 export default function () {
   const gameField = document.querySelector('.game-field');

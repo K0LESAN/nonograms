@@ -1,4 +1,4 @@
-import actions from './actions';
+import actions from '../actions/actions';
 
 export default function (event) {
   const button = event.target.closest('.menu__item');

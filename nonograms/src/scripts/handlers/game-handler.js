@@ -1,4 +1,4 @@
-import { audioController } from './play-sound';
+import { audioController } from '../helpers/play-sound';
 
 function cursorMovementHandler(clickedCell, newStatus) {
   let preventElement = clickedCell;

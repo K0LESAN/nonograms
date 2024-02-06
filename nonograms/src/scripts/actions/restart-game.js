@@ -2,8 +2,6 @@ import { controllerTime } from './../timer';
 
 export default function () {
   const gameField = document.querySelector('.game-field');
-  const minutes = document.querySelector('.timer__minutes');
-  const seconds = document.querySelector('.timer__seconds');
 
   for (const subgrid of gameField.children) {
     for (const cell of subgrid.children) {
@@ -11,8 +9,6 @@ export default function () {
     }
   }
 
-  minutes.textContent = '00';
-  seconds.textContent = '00';
-  controllerTime.init();
+  controllerTime.stop();
   controllerTime.start();
 }

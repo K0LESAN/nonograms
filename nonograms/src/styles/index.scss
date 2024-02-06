@@ -168,3 +168,23 @@ body[class="dark"] {
     }
   }
 }
+
+.modal {
+  @apply hidden w-screen h-screen items-center justify-center fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-opacity-80 bg-black;
+
+  &[class~="open"] {
+    @apply flex;
+  }
+
+  &__wrapper {
+    @apply w-[25rem] p-10 rounded-2xl flex text-center flex-col items-center justify-center gap-10 bg-violet-900 dark:bg-sky-950;
+  }
+
+  &__text {
+    @apply text-xl font-semibold text-black dark:text-lime-500;
+  }
+
+  &__button {
+    @apply py-2 px-10 rounded-xl text-xl font-semibold text-black bg-red-600 dark:bg-black dark:text-white cursor-pointer select-none;
+  }
+}

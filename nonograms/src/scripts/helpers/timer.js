@@ -21,8 +21,6 @@ const controllerTime = {
     this.timer = null;
     this.seconds = 0;
     this.minutes = 0;
-    this.secondsDOM.textContent = '00';
-    this.minutesDOM.textContent = '00';
   },
   preStart: function (DOMelement, seconds = 0, minutes = 0) {
     const handler = (event) => {

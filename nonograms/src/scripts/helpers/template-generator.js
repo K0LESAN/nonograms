@@ -1,4 +1,5 @@
 import { controllerTime } from './timer';
+import handlerClickOnCell from '../handlers/game-handler';
 
 function generatorHints(arr) {
   function helper(localArr, status, pending) {
@@ -110,4 +111,7 @@ export default function (size, template, name, restartTimer = true) {
     'k32d04sXgxnd312bd-currentGame',
     JSON.stringify(template)
   );
+
+  gameField.addEventListener('mousedown', handlerClickOnCell);
+  gameField.addEventListener('touchstart', handlerClickOnCell);
 }

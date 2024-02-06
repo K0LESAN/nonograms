@@ -1,4 +1,5 @@
 import { audioController } from '../helpers/play-sound';
+import checkProgress from './changer-state-game';
 
 function cursorMovementHandler(clickedCell, newStatus) {
   let preventElement = clickedCell;
@@ -28,6 +29,7 @@ function cursorMovementHandler(clickedCell, newStatus) {
     if (prevStatus !== newStatus) {
       audioController(newStatus);
       cell.setAttribute('data-status', newStatus);
+      checkProgress();
     }
   };
 }
@@ -61,4 +63,6 @@ export default function (event) {
       cursorMovementHandler(cell, newStatus)
     );
   }
+
+  checkProgress();
 }

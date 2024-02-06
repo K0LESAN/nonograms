@@ -1,3 +1,4 @@
+import handlerClickOnCell from './../handlers/game-handler';
 import { controllerTime } from '../helpers/timer';
 
 export default function () {
@@ -11,4 +12,8 @@ export default function () {
 
   controllerTime.stop();
   controllerTime.preStart(gameField);
+  gameField.removeEventListener('mousedown', handlerClickOnCell);
+  gameField.removeEventListener('touchstart', handlerClickOnCell);
+  gameField.addEventListener('mousedown', handlerClickOnCell);
+  gameField.addEventListener('touchstart', handlerClickOnCell);
 }

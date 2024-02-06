@@ -190,10 +190,45 @@ function startTemplateGenerator() {
   generatorTemplates(defaultSize, template, name);
 }
 
+function generatorModalWin() {
+  const modalWin = document.createElement('div');
+  const modalWrapper = document.createElement('div');
+  const modalText = document.createElement('div');
+  const modalSeconds = document.createElement('span');
+  const modalQuitButton = document.createElement('div');
+
+  modalWin.classList.add('modal');
+  modalWrapper.classList.add('modal__wrapper');
+  modalText.classList.add('modal__text');
+  modalSeconds.classList.add('modal__seconds');
+  modalQuitButton.classList.add('modal__button');
+
+  modalQuitButton.textContent = 'Exit';
+
+  modalWin.append(modalWrapper);
+  modalWrapper.append(modalText, modalQuitButton);
+  modalText.append(
+    `Great! You have solved the nonogram in `,
+    modalSeconds,
+    ` seconds!`
+  );
+
+  modalQuitButton.addEventListener('click', (event) => {
+    if (event.target !== modalQuitButton) {
+      return;
+    }
+
+    modalWin.classList.remove('open');
+  });
+
+  return modalWin;
+}
+
 function main() {
   const app = document.createElement('div');
   const container = document.createElement('div');
   const timerAndThemeSwitcher = topMenuGenerator();
+  const modalWin = generatorModalWin();
   const nonogram = nonogramGenerator();
   const menu = menuGenerator();
   const select = selectGenerator();
@@ -204,7 +239,7 @@ function main() {
   app.classList.add('app');
   container.classList.add('container');
 
-  app.append(container, ...Object.values(audios));
+  app.append(container, modalWin, ...Object.values(audios));
   container.append(timerAndThemeSwitcher, nonogram, menu, select);
 
   if (isDark) {

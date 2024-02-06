@@ -1,10 +1,10 @@
 import templates from './data/templates';
 import generatorTemplates from './template-generator';
-import selectHandler from './select';
 import menuHandler from './menu';
+import { startNewTemplate, renderOptions } from './select';
+import { controllerTime } from './timer';
 import gameHandler from './game-handler?url';
 import timerHandler from './timer?url';
-import { controllerTime } from './timer';
 
 function scriptsGenerator(src) {
   const script = document.createElement('script');
@@ -121,7 +121,10 @@ function selectGenerator() {
 
   select.append(selectSizes, selectTemplates, selectButton);
 
-  select.addEventListener('click', selectHandler, {
+  select.addEventListener('click', startNewTemplate, {
+    passive: true
+  });
+  select.addEventListener('change', renderOptions, {
     passive: true
   });
 

@@ -3,6 +3,7 @@ import { controllerTime } from '../timer';
 
 export default function () {
   const data = localStorage.getItem('k32d04sXgxnd312bd-savedGame');
+  const gameField = document.querySelector('.game-field');
 
   if (!data) {
     return;
@@ -19,6 +20,6 @@ export default function () {
   );
 
   templateGenerator(size, template, name, false);
-  controllerTime.start(seconds, minutes);
-  document.querySelector('.game-field').innerHTML = savedTemplate;
+  controllerTime.preStart(gameField, seconds, minutes);
+  gameField.innerHTML = savedTemplate;
 }

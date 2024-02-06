@@ -1,17 +1,8 @@
 const controllerTime = {
-  start: function (seconds = 0, minutes = 0) {
-    while (!this.minutesDOM) {
-      this.minutesDOM = document.querySelector('.timer__minutes');
+  start: function () {
+    if (this.timer) {
+      return;
     }
-
-    while (!this.secondsDOM) {
-      this.secondsDOM = document.querySelector('.timer__seconds');
-    }
-
-    this.seconds = seconds;
-    this.minutes = minutes;
-    this.minutesDOM.textContent = String(minutes).padStart(2, '0');
-    this.secondsDOM.textContent = String(seconds).padStart(2, '0');
 
     this.timer = setInterval(() => {
       this.seconds++;
@@ -21,20 +12,40 @@ const controllerTime = {
         this.seconds = 0;
       }
 
-      this.minutesDOM.textContent = String(this.minutes).padStart(2, '0');
       this.secondsDOM.textContent = String(this.seconds).padStart(2, '0');
+      this.minutesDOM.textContent = String(this.minutes).padStart(2, '0');
     }, 1000);
   },
   stop: function () {
     clearInterval(this.timer);
+    this.timer = null;
     this.seconds = 0;
     this.minutes = 0;
-    (this.secondsDOM || {}).textContent = '00';
-    (this.minutesDOM || {}).textContent = '00';
+    this.secondsDOM.textContent = '00';
+    this.minutesDOM.textContent = '00';
+  },
+  preStart: function (DOMelement, seconds = 0, minutes = 0) {
+    const handler = (event) => {
+      if (!event.target.closest('.game-field__item')) {
+        return;
+      }
+
+      this.start.call(this);
+      event.currentTarget.removeEventListener('mousedown', handler);
+      event.currentTarget.removeEventListener('touchstart', handler);
+    };
+
+    this.seconds = seconds;
+    this.minutes = minutes;
+    this.secondsDOM.textContent = String(this.seconds).padStart(2, '0');
+    this.minutesDOM.textContent = String(this.minutes).padStart(2, '0');
+
+    DOMelement.addEventListener('mousedown', handler);
+    DOMelement.addEventListener('touchstart', handler);
   },
   timer: null,
-  secondsDOM: document.querySelector('.timer__minutes'),
-  minutesDOM: document.querySelector('.timer__seconds'),
+  secondsDOM: null,
+  minutesDOM: null,
   seconds: 0,
   minutes: 0
 };

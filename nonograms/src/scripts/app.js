@@ -4,6 +4,7 @@ import selectHandler from './select';
 import menuHandler from './menu';
 import gameHandler from './game-handler?url';
 import timerHandler from './timer?url';
+import { controllerTime } from './timer';
 
 function scriptsGenerator(src) {
   const script = document.createElement('script');
@@ -35,6 +36,9 @@ function topMenuGenerator() {
 
   minutes.textContent = '00';
   seconds.textContent = '00';
+
+  controllerTime.minutesDOM = minutes;
+  controllerTime.secondsDOM = seconds;
 
   return wrapper;
 }
@@ -165,12 +169,12 @@ function main() {
 
   document.body.append(app);
 
-  startTemplateGenerator();
-
   document.head.append(
     scriptsGenerator(gameHandler),
     scriptsGenerator(timerHandler)
   );
+
+  startTemplateGenerator();
 
   const selectSizes = document.querySelector('.select-templates').options;
   const length = selectSizes.length;

@@ -10,5 +10,5 @@ export default function () {
   }
 
   controllerTime.stop();
-  controllerTime.start();
+  controllerTime.preStart(gameField);
 }

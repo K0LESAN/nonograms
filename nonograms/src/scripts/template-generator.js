@@ -69,6 +69,12 @@ export default function (size, template, name, restartTimer = true) {
   const { leftHints, topHints } = generatorHints(template);
   const countCells = 25;
 
+  controllerTime.stop();
+
+  if (restartTimer) {
+    controllerTime.preStart(gameField);
+  }
+
   gameField.innerHTML = '';
   gameField.setAttribute('data-current-template', name);
 
@@ -104,9 +110,4 @@ export default function (size, template, name, restartTimer = true) {
     'k32d04sXgxnd312bd-currentGame',
     JSON.stringify(template)
   );
-
-  if (restartTimer) {
-    controllerTime.stop();
-    controllerTime.start();
-  }
 }

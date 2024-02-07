@@ -188,3 +188,31 @@ body[class="dark"] {
     @apply py-2 px-10 rounded-xl text-xl font-semibold text-black bg-red-600 dark:bg-black dark:text-white cursor-pointer select-none;
   }
 }
+
+.modal-score {
+  @apply hidden w-screen h-screen items-center justify-center fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-opacity-80 bg-black;
+
+  &[class~="open"] {
+    @apply flex;
+  }
+
+  &__wrapper {
+    @apply w-5/6 p-10 rounded-2xl flex text-center flex-col items-center justify-center gap-10 bg-violet-900 dark:bg-sky-950;
+  }
+
+  &__table {
+    @apply w-full table-fixed border-separate border-spacing-y-2;
+  }
+
+  &__caption {
+    @apply mb-3 text-3xl font-semibold text-sky-600 dark:text-emerald-300;
+  }
+
+  &__button {
+    @apply py-2 px-10 rounded-xl text-xl font-semibold text-black bg-red-600 dark:bg-black dark:text-white cursor-pointer select-none;
+  }
+
+  &__cell {
+    @apply text-xl font-semibold text-black dark:text-indigo-500;
+  }
+}

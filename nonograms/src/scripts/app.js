@@ -228,22 +228,38 @@ function generatorModalScoreTable() {
   const modalScore = document.createElement('div');
   const modalWrapper = document.createElement('div');
   const modalTable = document.createElement('table');
+  const tableCaption = document.createElement('caption');
   const modalTableHead = document.createElement('thead');
+  const tableHeadRow = document.createElement('tr');
+  const tableNameCell = document.createElement('td');
+  const tableSizeCell = document.createElement('td');
+  const tableTimeCell = document.createElement('td');
   const modalTableBody = document.createElement('tbody');
   const modalQuitButton = document.createElement('div');
 
   modalScore.classList.add('modal-score');
   modalWrapper.classList.add('modal-score__wrapper');
   modalTable.classList.add('modal-score__table');
+  tableCaption.classList.add('modal-score__caption');
   modalTableHead.classList.add('modal-score__thead');
+  tableHeadRow.classList.add('modal-score__thead');
+  tableNameCell.classList.add('modal-score__cell');
+  tableSizeCell.classList.add('modal-score__cell');
+  tableTimeCell.classList.add('modal-score__cell');
   modalTableBody.classList.add('modal-score__tbody');
-  modalQuitButton.classList.add('table-score__button');
+  modalQuitButton.classList.add('modal-score__button');
 
   modalQuitButton.textContent = 'Exit';
+  tableCaption.textContent = 'High score table';
+  tableNameCell.textContent = 'Name';
+  tableSizeCell.textContent = 'Size';
+  tableTimeCell.textContent = 'Time';
 
   modalScore.append(modalWrapper);
   modalWrapper.append(modalTable, modalQuitButton);
-  modalTable.append(modalTableHead, modalTableBody);
+  modalTable.append(tableCaption, modalTableHead, modalTableBody);
+  tableHeadRow.append(tableNameCell, tableSizeCell, tableTimeCell);
+  modalTableHead.append(tableHeadRow);
 
   modalQuitButton.addEventListener('click', (event) => {
     if (event.target !== modalQuitButton) {

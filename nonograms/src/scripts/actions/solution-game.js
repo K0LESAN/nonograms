@@ -9,7 +9,7 @@ export default function () {
   const localArr = transformTemplate(gameField, true);
   const length = localArr.length;
 
-  stopGame(gameField);
+  stopGame(gameField, false, false, false);
 
   for (let i = 0; i < length; i++) {
     const subLength = localArr[i].length;

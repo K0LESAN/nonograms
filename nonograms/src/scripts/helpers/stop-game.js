@@ -1,8 +1,41 @@
 import { timeController } from './timer';
 import handlerClickOnCell from './../handlers/game-handler';
 
-export default function (gameField, addHandlers = false, startTimer = false) {
+function addNewRecord(addRecord, gameField) {
+  if (!addRecord) {
+    return;
+  }
+
+  const records = JSON.parse(localStorage.getItem('k32d04sXgxnd312bd-records'));
+
+  if (!records) {
+    return;
+  }
+
+  const newRecord = {};
+
+  newRecord.name = gameField.getAttribute('data-current-template');
+  newRecord.size = Math.sqrt(gameField.children.length) * 5;
+  newRecord.time = timeController.minutes * 60 + timeController.seconds;
+
+  while (records.length > 4) {
+    records.shift();
+  }
+
+  records.push(newRecord);
+
+  localStorage.setItem('k32d04sXgxnd312bd-records', JSON.stringify(records));
+}
+
+export default function (
+  gameField,
+  addHandlers = false,
+  startTimer = false,
+  addRecord = true
+) {
   gameField ||= document.querySelector('.game-field');
+
+  addNewRecord(addRecord, gameField);
 
   timeController.stop();
 

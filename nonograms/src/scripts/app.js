@@ -2,7 +2,7 @@ import { startNewTemplate, renderOptions } from './handlers/select';
 import handlerClickOnCell from './handlers/game-handler';
 import menuHandler from './handlers/menu';
 import generatorTemplates from './helpers/template-generator';
-import { controllerTime } from './helpers/timer';
+import { timeController } from './helpers/timer';
 import { audios, audioController } from './helpers/play-sound';
 import templates from './data/templates';
 
@@ -65,8 +65,8 @@ function topMenuGenerator() {
   seconds.textContent = '00';
   soundButton.textContent = 'on';
 
-  controllerTime.minutesDOM = minutes;
-  controllerTime.secondsDOM = seconds;
+  timeController.minutesDOM = minutes;
+  timeController.secondsDOM = seconds;
 
   return wrapper;
 }
@@ -224,11 +224,44 @@ function generatorModalWin() {
   return modalWin;
 }
 
+function generatorModalScoreTable() {
+  const modalScore = document.createElement('div');
+  const modalWrapper = document.createElement('div');
+  const modalTable = document.createElement('table');
+  const modalTableHead = document.createElement('thead');
+  const modalTableBody = document.createElement('tbody');
+  const modalQuitButton = document.createElement('div');
+
+  modalScore.classList.add('modal-score');
+  modalWrapper.classList.add('modal-score__wrapper');
+  modalTable.classList.add('modal-score__table');
+  modalTableHead.classList.add('modal-score__thead');
+  modalTableBody.classList.add('modal-score__tbody');
+  modalQuitButton.classList.add('table-score__button');
+
+  modalQuitButton.textContent = 'Exit';
+
+  modalScore.append(modalWrapper);
+  modalWrapper.append(modalTable, modalQuitButton);
+  modalTable.append(modalTableHead, modalTableBody);
+
+  modalQuitButton.addEventListener('click', (event) => {
+    if (event.target !== modalQuitButton) {
+      return;
+    }
+
+    modalScore.classList.remove('open');
+  });
+
+  return modalScore;
+}
+
 function main() {
   const app = document.createElement('div');
   const container = document.createElement('div');
   const timerAndThemeSwitcher = topMenuGenerator();
   const modalWin = generatorModalWin();
+  const modalScore = generatorModalScoreTable();
   const nonogram = nonogramGenerator();
   const menu = menuGenerator();
   const select = selectGenerator();
@@ -239,7 +272,7 @@ function main() {
   app.classList.add('app');
   container.classList.add('container');
 
-  app.append(container, modalWin, ...Object.values(audios));
+  app.append(container, modalWin, modalScore, ...Object.values(audios));
   container.append(timerAndThemeSwitcher, nonogram, menu, select);
 
   if (isDark) {

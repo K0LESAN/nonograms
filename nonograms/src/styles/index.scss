@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body[class="dark"] {
-  @apply bg-[#232323];
+body {
+  @apply transition-colors duration-[400ms];
+
+  &[class="dark"] {
+    @apply bg-[#232323];
+  }
 }
 
 .app {
@@ -18,11 +22,11 @@ body[class="dark"] {
 }
 
 .timer {
-  @apply flex items-center justify-center px-3 text-2xl font-bold py-1 gap-1 rounded-xl bg-[#c1c1c1] select-none dark:text-white dark:bg-fuchsia-950;
+  @apply flex items-center justify-center px-3 text-2xl font-bold py-1 gap-1 rounded-xl bg-[#c1c1c1] select-none dark:text-white dark:bg-fuchsia-950 transition-colors duration-[400ms];
 }
 
 .sound-button {
-  @apply text-2xl border-4 border-green-700 px-10 py-1 rounded-2xl bg-sky-500 dark:bg-slate-800 dark:text-neutral-300 select-none cursor-pointer;
+  @apply text-2xl border-4 border-green-700 px-10 py-1 rounded-2xl bg-sky-500 dark:bg-slate-800 dark:text-neutral-300 select-none cursor-pointer transition-colors duration-[400ms];
 
   &[data-off] {
     @apply border-red-700;
@@ -43,19 +47,19 @@ body[class="dark"] {
 }
 
 .top-hints {
-  @apply flex border-x-[5px] border-solid border-[#808080] dark:border-slate-300 col-start-2 col-end-3 self-end select-none;
+  @apply flex border-x-[5px] border-solid border-[#808080] dark:border-slate-300 col-start-2 col-end-3 self-end select-none transition-colors duration-[400ms];
 
   &__subgrid {
     @apply grid;
     grid-template-columns: repeat(5, clamp(21px, 4.2vw, 38px));
 
     &:not(&:last-child) {
-      @apply border-r-[5px] border-solid border-[#808080] dark:border-slate-300;
+      @apply border-r-[5px] border-solid border-[#808080] dark:border-slate-300 transition-colors duration-[400ms];
     }
   }
 
   &__item {
-    @apply flex flex-col flex-wrap items-center justify-end border-r-2 border-solid border-[#808080] dark:border-slate-300;
+    @apply flex flex-col flex-wrap items-center justify-end border-r-2 border-solid border-[#808080] dark:border-slate-300 transition-colors duration-[400ms];
 
     &:last-child {
       @apply border-r-0;
@@ -63,24 +67,24 @@ body[class="dark"] {
   }
 
   &__text {
-    @apply dark:text-white;
+    @apply dark:text-white transition-colors duration-[400ms];
   }
 }
 
 .left-hints {
-  @apply border-t-[5px] border-b-[5px] border-solid border-[#808080] dark:border-slate-300 select-none;
+  @apply border-t-[5px] border-b-[5px] border-solid border-[#808080] dark:border-slate-300 select-none transition-colors duration-[400ms];
 
   &__subgrid {
     @apply grid;
     grid-template-rows: repeat(5, clamp(21px, 4.2vw, 38px));
 
     &:not(&:last-child) {
-      @apply border-b-[5px] border-solid border-[#808080] dark:border-slate-300;
+      @apply border-b-[5px] border-solid border-[#808080] dark:border-slate-300 transition-colors duration-[400ms];
     }
   }
 
   &__item {
-    @apply flex items-center justify-end gap-[0.625rem] border-b-2 border-solid border-[#808080] dark:border-slate-300 pr-2 pl-2;
+    @apply flex items-center justify-end gap-[0.625rem] border-b-2 border-solid border-[#808080] dark:border-slate-300 pr-2 pl-2 transition-colors duration-[400ms];
 
     &:last-child {
       @apply border-b-0;
@@ -88,15 +92,15 @@ body[class="dark"] {
   }
 
   &__text {
-    @apply dark:text-white;
+    @apply dark:text-white transition-colors duration-[400ms];
   }
 }
 
 .game-field {
-  @apply grid border-[0.3125rem] border-solid border-[#808080] dark:border-slate-300 dark:bg-[#5F5E5E];
+  @apply grid border-[0.3125rem] border-solid border-[#808080] dark:border-slate-300 dark:bg-[#5F5E5E] transition-colors duration-[400ms];
 
   &__subgrid {
-    @apply grid border-r-[5px] border-b-[5px] border-solid border-[#808080] dark:border-slate-300;
+    @apply grid border-r-[5px] border-b-[5px] border-solid border-[#808080] dark:border-slate-300 transition-colors duration-[400ms];
     grid-template-columns: repeat(5, clamp(21px, 4.2vw, 38px));
     grid-template-rows: repeat(5, clamp(21px, 4.2vw, 38px));
 
@@ -110,7 +114,7 @@ body[class="dark"] {
   }
 
   &__item {
-    @apply border-r-2 border-b-2 border-solid border-[#808080] dark:border-slate-300 cursor-pointer;
+    @apply border-r-2 border-b-2 border-solid border-[#808080] dark:border-slate-300 cursor-pointer transition-colors duration-[400ms];
 
     &:nth-child(5n) {
       @apply border-r-0;
@@ -129,7 +133,7 @@ body[class="dark"] {
 
       &::before,
       &::after {
-        @apply block absolute w-[100%] aspect-square h-0.5 bg-[red] dark:bg-black content-[''];
+        @apply block absolute w-[100%] aspect-square h-0.5 bg-[red] dark:bg-black content-[''] transition-colors duration-[400ms];
       }
     }
   }
@@ -139,7 +143,7 @@ body[class="dark"] {
   @apply max-w-[48rem] flex gap-2 items-center justify-center p-2 flex-wrap;
 
   &__item {
-    @apply px-5 py-3 font-["inter"] font-semibold text-2xl leading-4 text-center text-slate-950 bg-lime-600 dark:text-white dark:bg-zinc-900 cursor-pointer select-none;
+    @apply px-5 py-3 font-["inter"] font-semibold text-2xl leading-4 text-center text-slate-950 bg-lime-600 dark:text-white dark:bg-zinc-900 cursor-pointer select-none transition-colors duration-[400ms];
 
     @media screen and (max-width: 620px) {
       @apply text-xl px-4 py-2;
@@ -157,7 +161,7 @@ body[class="dark"] {
   &-sizes,
   &-templates,
   &__button {
-    @apply text-center p-2 rounded-2xl text-xl font-semibold bg-zinc-500 dark:bg-stone-900 dark:text-white text-slate-950 cursor-pointer select-none;
+    @apply text-center p-2 rounded-2xl text-xl font-semibold bg-zinc-500 dark:bg-stone-900 dark:text-white text-slate-950 cursor-pointer select-none transition-colors duration-[400ms];
 
     &__item {
       @apply text-xl text-center cursor-pointer;
@@ -177,15 +181,15 @@ body[class="dark"] {
   }
 
   &__wrapper {
-    @apply w-[25rem] p-10 rounded-2xl flex text-center flex-col items-center justify-center gap-10 bg-violet-900 dark:bg-sky-950;
+    @apply w-[25rem] p-10 rounded-2xl flex text-center flex-col items-center justify-center gap-10 bg-violet-900 dark:bg-sky-950 transition-colors duration-[400ms];
   }
 
   &__text {
-    @apply text-xl font-semibold text-black dark:text-lime-500;
+    @apply text-xl font-semibold text-black dark:text-lime-500 transition-colors duration-[400ms];
   }
 
   &__button {
-    @apply py-2 px-10 rounded-xl text-xl font-semibold text-black bg-red-600 dark:bg-black dark:text-white cursor-pointer select-none;
+    @apply py-2 px-10 rounded-xl text-xl font-semibold text-black bg-red-600 dark:bg-black dark:text-white cursor-pointer select-none transition-colors duration-[400ms];
   }
 }
 
@@ -197,7 +201,7 @@ body[class="dark"] {
   }
 
   &__wrapper {
-    @apply w-5/6 p-10 rounded-2xl flex text-center flex-col items-center justify-center gap-10 bg-violet-900 dark:bg-sky-950;
+    @apply w-5/6 p-10 rounded-2xl flex text-center flex-col items-center justify-center gap-10 bg-violet-900 dark:bg-sky-950 transition-colors duration-[400ms];
   }
 
   &__table {
@@ -205,14 +209,14 @@ body[class="dark"] {
   }
 
   &__caption {
-    @apply mb-3 text-3xl font-semibold text-sky-600 dark:text-emerald-300;
+    @apply mb-3 text-3xl font-semibold text-sky-600 dark:text-emerald-300 transition-colors duration-[400ms];
   }
 
   &__button {
-    @apply py-2 px-10 rounded-xl text-xl font-semibold text-black bg-red-600 dark:bg-black dark:text-white cursor-pointer select-none;
+    @apply py-2 px-10 rounded-xl text-xl font-semibold text-black bg-red-600 dark:bg-black dark:text-white cursor-pointer select-none transition-colors duration-[400ms];
   }
 
   &__cell {
-    @apply text-xl font-semibold text-black dark:text-indigo-500;
+    @apply text-xl font-semibold text-black dark:text-indigo-500 transition-colors duration-[400ms];
   }
 }

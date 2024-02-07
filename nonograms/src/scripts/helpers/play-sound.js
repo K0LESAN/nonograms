@@ -20,12 +20,17 @@ const audios = {
 };
 
 function audioController(action) {
+  if (audioController.isCancel) {
+    return;
+  }
+
   if (action === 'win') {
     audios[action]?.load();
     audios[action]?.play();
+    return;
   }
 
-  if (isPlayed || audioController.isCancel) {
+  if (isPlayed) {
     return;
   }
 

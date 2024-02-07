@@ -65,6 +65,7 @@ function generatorDOMHints(size, hints, direction) {
 
 export default function (size, template, name, restartTimer = true) {
   const gameField = document.querySelector('.game-field');
+  const captionGameField = document.querySelector('.caption-game-field');
   const countSubgrids = (size / 5) ** 2;
   const countLastSubgrids = size / 5;
   const { leftHints, topHints } = generatorHints(template);
@@ -81,6 +82,8 @@ export default function (size, template, name, restartTimer = true) {
 
   gameField.style.gridTemplateColumns = `repeat(${countLastSubgrids}, min-content)`;
   gameField.style.gridTemplateRows = `repeat(${countLastSubgrids}, min-content)`;
+
+  captionGameField.textContent = name;
 
   for (let i = 0; i < countSubgrids; i++) {
     const subgrid = document.createElement('div');

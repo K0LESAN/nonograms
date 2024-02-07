@@ -281,15 +281,23 @@ function main() {
   const nonogram = nonogramGenerator();
   const menu = menuGenerator();
   const select = selectGenerator();
+  const captionGameField = document.createElement('div');
   const isDark = window.matchMedia(
     'screen and (prefers-color-scheme: dark)'
   ).matches;
 
   app.classList.add('app');
   container.classList.add('container');
+  captionGameField.classList.add('caption-game-field');
 
   app.append(container, modalWin, modalScore, ...Object.values(audios));
-  container.append(timerAndThemeSwitcher, nonogram, menu, select);
+  container.append(
+    timerAndThemeSwitcher,
+    captionGameField,
+    nonogram,
+    menu,
+    select
+  );
 
   if (isDark) {
     document.body.classList.add('dark');

@@ -42,6 +42,10 @@ body {
   }
 }
 
+.caption-game-field {
+  @apply mb-6 rounded-xl text-2xl font-semibold select-none dark:text-white transition-colors duration-[400ms];
+}
+
 .nonogram {
   @apply grid mb-4;
 }

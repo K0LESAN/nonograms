@@ -114,7 +114,8 @@ body {
   }
 
   &__item {
-    @apply border-r-2 border-b-2 border-solid border-[#808080] dark:border-slate-300 cursor-pointer transition-colors duration-[400ms];
+    @apply border-r-2 border-b-2 border-solid border-[#808080] dark:border-slate-300 cursor-pointer duration-[400ms];
+    transition-property: border-color;
 
     &:nth-child(5n) {
       @apply border-r-0;

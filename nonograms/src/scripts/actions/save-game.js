@@ -1,4 +1,4 @@
-import { controllerTime } from '../helpers/timer';
+import { timeController } from '../helpers/timer';
 
 export default function () {
   const gameField = document.querySelector('.game-field');
@@ -12,8 +12,8 @@ export default function () {
   savedGame.template = JSON.parse(
     localStorage.getItem('k32d04sXgxnd312bd-currentGame')
   );
-  savedGame.minutes = controllerTime.minutes;
-  savedGame.seconds = controllerTime.seconds;
+  savedGame.minutes = timeController.minutes;
+  savedGame.seconds = timeController.seconds;
 
   localStorage.setItem(
     'k32d04sXgxnd312bd-savedGame',

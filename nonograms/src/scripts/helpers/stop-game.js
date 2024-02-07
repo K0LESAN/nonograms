@@ -1,13 +1,13 @@
-import { controllerTime } from './timer';
+import { timeController } from './timer';
 import handlerClickOnCell from './../handlers/game-handler';
 
 export default function (gameField, addHandlers = false, startTimer = false) {
   gameField ||= document.querySelector('.game-field');
 
-  controllerTime.stop();
+  timeController.stop();
 
   if (startTimer) {
-    controllerTime.preStart(gameField);
+    timeController.preStart(gameField);
   }
 
   gameField.removeEventListener('mousedown', handlerClickOnCell);

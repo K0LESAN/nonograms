@@ -1,4 +1,4 @@
-const controllerTime = {
+const timeController = {
   start: function () {
     if (this.timer) {
       return;
@@ -48,4 +48,4 @@ const controllerTime = {
   minutes: 0
 };
 
-export { controllerTime };
+export { timeController };

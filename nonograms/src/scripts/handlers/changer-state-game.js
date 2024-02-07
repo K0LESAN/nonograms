@@ -1,5 +1,5 @@
 import transformTemplate from '../helpers/transform-template';
-import { controllerTime } from '../helpers/timer';
+import { timeController } from '../helpers/timer';
 import stopGame from '../helpers/stop-game';
 
 function assertsDeepEqual(firstArr, secondArr) {
@@ -28,7 +28,7 @@ export default function () {
   }
 
   const modalWin = document.querySelector('.modal');
-  const time = controllerTime.seconds + controllerTime.minutes * 60;
+  const time = timeController.seconds + timeController.minutes * 60;
 
   modalWin.querySelector('.modal__seconds').textContent = time;
   modalWin.classList.add('open');

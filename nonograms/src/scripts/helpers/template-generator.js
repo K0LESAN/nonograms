@@ -1,4 +1,4 @@
-import { controllerTime } from './timer';
+import { timeController } from './timer';
 import handlerClickOnCell from '../handlers/game-handler';
 
 function generatorHints(arr) {
@@ -70,10 +70,10 @@ export default function (size, template, name, restartTimer = true) {
   const { leftHints, topHints } = generatorHints(template);
   const countCells = 25;
 
-  controllerTime.stop();
+  timeController.stop();
 
   if (restartTimer) {
-    controllerTime.preStart(gameField);
+    timeController.preStart(gameField);
   }
 
   gameField.innerHTML = '';

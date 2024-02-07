@@ -1,5 +1,5 @@
 import templateGenerator from '../helpers/template-generator';
-import { controllerTime } from '../helpers/timer';
+import { timeController } from '../helpers/timer';
 
 export default function () {
   const data = localStorage.getItem('k32d04sXgxnd312bd-savedGame');
@@ -12,7 +12,7 @@ export default function () {
   const { size, template, savedTemplate, name, minutes, seconds } =
     JSON.parse(data);
 
-  controllerTime.stop();
+  timeController.stop();
 
   localStorage.setItem(
     'k32d04sXgxnd312bd-currentGame',
@@ -20,6 +20,6 @@ export default function () {
   );
 
   templateGenerator(size, template, name, false);
-  controllerTime.preStart(gameField, seconds, minutes);
+  timeController.preStart(gameField, seconds, minutes);
   gameField.innerHTML = savedTemplate;
 }

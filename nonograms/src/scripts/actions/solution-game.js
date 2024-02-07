@@ -1,6 +1,5 @@
 import transformTemplate from '../helpers/transform-template';
-import { controllerTime } from '../helpers/timer';
-import handleClickOnCeil from './../handlers/game-handler';
+import stopGame from '../helpers/stop-game';
 
 export default function () {
   const template = JSON.parse(
@@ -10,10 +9,7 @@ export default function () {
   const localArr = transformTemplate(gameField, true);
   const length = localArr.length;
 
-  controllerTime.stop();
-  gameField.removeEventListener('mousedown', handleClickOnCeil);
-  gameField.removeEventListener('mousemove', handleClickOnCeil);
-  gameField.removeEventListener('touchstart', handleClickOnCeil);
+  stopGame(gameField);
 
   for (let i = 0; i < length; i++) {
     const subLength = localArr[i].length;

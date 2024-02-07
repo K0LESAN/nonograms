@@ -1,5 +1,4 @@
-import handlerClickOnCell from './../handlers/game-handler';
-import { controllerTime } from '../helpers/timer';
+import stopGame from '../helpers/stop-game';
 
 export default function () {
   const gameField = document.querySelector('.game-field');
@@ -10,10 +9,5 @@ export default function () {
     }
   }
 
-  controllerTime.stop();
-  controllerTime.preStart(gameField);
-  gameField.removeEventListener('mousedown', handlerClickOnCell);
-  gameField.removeEventListener('touchstart', handlerClickOnCell);
-  gameField.addEventListener('mousedown', handlerClickOnCell);
-  gameField.addEventListener('touchstart', handlerClickOnCell);
+  stopGame(gameField, true, true);
 }

@@ -1,6 +1,9 @@
-function helper(lineGameField) {
+function helper(lineGameField, getElement) {
   const initialTemplate = [];
   const length = lineGameField.length;
+  const getter = getElement
+    ? (cell) => cell
+    : (cell) => Number(cell.getAttribute('data-status')) || 0;
 
   for (let i = 0; i < 5; i++) {
     const line = [];
@@ -9,7 +12,7 @@ function helper(lineGameField) {
       const localArr = lineGameField[j].children;
 
       for (let k = 0; k < 5; k++) {
-        line.push(Number(localArr[k + 5 * i].getAttribute('data-status')) || 0);
+        line.push(getter(localArr[k + 5 * i]));
       }
     }
 
@@ -19,7 +22,7 @@ function helper(lineGameField) {
   return initialTemplate;
 }
 
-export default function (gameField) {
+export default function (gameField, getElement = false) {
   const localArr = [];
   const gameFieldLength = gameField.children.length;
   const coeff = Math.sqrt(gameFieldLength);
@@ -27,7 +30,10 @@ export default function (gameField) {
 
   while (index < gameFieldLength) {
     localArr.push(
-      ...helper(Array.from(gameField.children).slice(index, index + coeff))
+      ...helper(
+        Array.from(gameField.children).slice(index, index + coeff),
+        getElement
+      )
     );
     index += coeff;
   }

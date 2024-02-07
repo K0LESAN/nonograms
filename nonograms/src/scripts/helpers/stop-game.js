@@ -6,12 +6,8 @@ function addNewRecord(addRecord, gameField) {
     return;
   }
 
-  const records = JSON.parse(localStorage.getItem('k32d04sXgxnd312bd-records'));
-
-  if (!records) {
-    return;
-  }
-
+  const records =
+    JSON.parse(localStorage.getItem('k32d04sXgxnd312bd-records')) || [];
   const newRecord = {};
 
   newRecord.name = gameField.getAttribute('data-current-template');

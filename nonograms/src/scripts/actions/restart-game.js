@@ -9,5 +9,5 @@ export default function () {
     }
   }
 
-  stopGame(gameField, true, true);
+  stopGame(gameField, true, true, false);
 }

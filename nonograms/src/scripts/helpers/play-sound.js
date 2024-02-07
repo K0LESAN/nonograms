@@ -20,6 +20,11 @@ const audios = {
 };
 
 function audioController(action) {
+  if (action === 'win') {
+    audios[action]?.load();
+    audios[action]?.play();
+  }
+
   if (isPlayed || audioController.isCancel) {
     return;
   }

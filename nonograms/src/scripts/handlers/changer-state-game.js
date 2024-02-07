@@ -1,5 +1,6 @@
 import transformTemplate from '../helpers/transform-template';
 import { timeController } from '../helpers/timer';
+import { audioController } from '../helpers/play-sound';
 import stopGame from '../helpers/stop-game';
 
 function assertsDeepEqual(firstArr, secondArr) {
@@ -33,5 +34,6 @@ export default function () {
   modalWin.querySelector('.modal__seconds').textContent = time;
   modalWin.classList.add('open');
 
+  audioController('win');
   stopGame();
 }

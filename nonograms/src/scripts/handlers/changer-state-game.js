@@ -1,6 +1,6 @@
 import transformTemplate from '../helpers/transform-template';
-import handlerClickOnCell from './game-handler';
 import { controllerTime } from '../helpers/timer';
+import stopGame from '../helpers/stop-game';
 
 function assertsDeepEqual(firstArr, secondArr) {
   const length = firstArr.length;
@@ -33,8 +33,5 @@ export default function () {
   modalWin.querySelector('.modal__seconds').textContent = time;
   modalWin.classList.add('open');
 
-  controllerTime.stop();
-  gameField.removeEventListener('mousedown', handlerClickOnCell);
-  gameField.removeEventListener('mousemove', handlerClickOnCell);
-  gameField.removeEventListener('touchstart', handlerClickOnCell);
+  stopGame();
 }

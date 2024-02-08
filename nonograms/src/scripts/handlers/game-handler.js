@@ -53,15 +53,18 @@ export default function (event) {
   }
 
   const currentStatus = Number(cell.getAttribute('data-status'));
-  const newStatus =
-    event.buttons === 1 ? currentStatus % 2 ^ 1 : [2, 2, 0][currentStatus];
+  const isClicked = event.buttons === 1;
+  let newStatus = null;
 
-  cell.setAttribute(
-    'data-status',
-    !deviceIsMobile ? newStatus : (currentStatus + 1) % 3
-  );
+  if (deviceIsMobile) {
+    newStatus = (currentStatus + 1) % 3;
+  } else {
+    newStatus = isClicked ? currentStatus % 2 ^ 1 : [2, 2, 0][currentStatus];
+  }
 
-  audioController(!deviceIsMobile ? newStatus : (currentStatus + 1) % 3);
+  cell.setAttribute('data-status', newStatus);
+
+  audioController(newStatus);
 
   if (!deviceIsMobile) {
     document.addEventListener(

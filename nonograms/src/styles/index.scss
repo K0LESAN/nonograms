@@ -11,7 +11,7 @@ body {
 }
 
 .app {
-  @apply flex justify-center pt-5;
+  @apply flex justify-center py-10;
 
   &__wrapper {
     @apply w-full flex items-center justify-between mb-4;

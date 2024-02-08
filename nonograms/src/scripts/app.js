@@ -241,7 +241,7 @@ function generatorModalScoreTable() {
   modalTable.classList.add('modal-score__table');
   tableCaption.classList.add('modal-score__caption');
   modalTableHead.classList.add('modal-score__thead');
-  tableHeadRow.classList.add('modal-score__thead');
+  tableHeadRow.classList.add('modal-score__row');
   tableNameCell.classList.add('modal-score__cell');
   tableSizeCell.classList.add('modal-score__cell');
   tableTimeCell.classList.add('modal-score__cell');

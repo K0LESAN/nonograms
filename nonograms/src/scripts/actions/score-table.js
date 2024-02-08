@@ -1,7 +1,7 @@
 function generatorRows() {
   const records =
     JSON.parse(localStorage.getItem('k32d04sXgxnd312bd-records')) || [];
-  const copySortedRecords = [].concat(records).sort((a, b) => b.time - a.time);
+  const copySortedRecords = [].concat(records).sort((a, b) => a.time - b.time);
   const rows = [];
 
   for (const record of copySortedRecords) {

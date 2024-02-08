@@ -82,6 +82,9 @@ function nonogramGenerator() {
   leftHints.classList.add('left-hints', 'nonogram__left-hints');
   gameField.classList.add('game-field', 'nonogram__game-field');
 
+  gameField.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+  });
   gameField.addEventListener('mousedown', handlerClickOnCell);
   gameField.addEventListener('touchstart', handlerClickOnCell);
   nonogram.append(topHints, leftHints, gameField);

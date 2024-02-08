@@ -1,8 +1,13 @@
 import { audioController } from '../helpers/play-sound';
 import checkProgress from './changer-state-game';
 
+function handler(event) {
+  event.preventDefault();
+}
+
 function cursorMovementHandler(clickedCell, newStatus) {
   let preventElement = clickedCell;
+  document.addEventListener('contextmenu', handler);
 
   return function handlerMove(event) {
     const cell = event.target.closest('.game-field__item');
@@ -11,6 +16,7 @@ function cursorMovementHandler(clickedCell, newStatus) {
 
     if (event.buttons === 0) {
       document.removeEventListener('mousemove', handlerMove);
+      document.removeEventListener('contextmenu', handler);
       return;
     }
 

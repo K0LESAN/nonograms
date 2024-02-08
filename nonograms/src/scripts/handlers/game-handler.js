@@ -46,7 +46,9 @@ export default function (event) {
     'screen and (hover: none) and (pointer: coarse)'
   ).matches;
 
-  event.preventDefault();
+  if (event.cancelable) {
+    event.preventDefault();
+  }
 
   if (!cell || (event.type.includes('mouse') && deviceIsMobile)) {
     return;

@@ -43,7 +43,7 @@ function cursorMovementHandler(clickedCell, newStatus) {
 export default function (event) {
   const cell = event.target.closest('.game-field__item');
   const deviceIsMobile = window.matchMedia(
-    'screen and (hover: none) and (pointer: coarse)'
+    'screen and ((hover: none) or (pointer: coarse))'
   ).matches;
 
   if (event.cancelable) {
